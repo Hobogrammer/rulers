@@ -5,7 +5,7 @@ require 'rulers/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rulers"
-  spec.version       = '0.0.2'
+  spec.version       = Rulers::VERSION
   spec.authors       = ["Andre Smith"]
   spec.email         = ["andrepsmithjr@gmail.com"]
   spec.summary       = %q{A Rack-based Web Framework.}
