@@ -58,6 +58,23 @@ TEMPLATE
         end
       end
 
+      def self.save(record)
+        id = record.id
+        hash = {}
+        hash["submitter"] = record["submitter"] || ""
+        hash["quote"] = record["quote"] || ""
+        hash["attribution"] = record["attribution"] || ""
+
+        File.open("db/quotes/#{id.to_s}.json", "w") do |f|
+          f.write <<TEMPLATE
+{
+  "submitter": "#{hash ["submitter"]}"
+}
+TEMPLATE
+        end
+        FileModel.new "db/quotes/#{id.to_s}.json"
+      end
+
     end
   end
 end
