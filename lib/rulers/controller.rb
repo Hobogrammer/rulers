@@ -4,7 +4,6 @@ require "rack/request"
 
 module Rulers
   class Controller
-
     include Rulers::Model
 
     def initialize(env)
