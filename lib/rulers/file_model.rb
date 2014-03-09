@@ -75,6 +75,18 @@ TEMPLATE
         FileModel.new "db/quotes/#{id.to_s}.json"
       end
 
+      def self.find_all_by_submitter(submitter)
+        files = Dir["db/quotes/*.json"]
+        submitter_match = Array.new
+        files.each do |file|
+          obj = File.read(file)
+          hashed_file = MultiJson.load(obj)
+
+          submitter_match << FileModel.new(file) if hash["submitter"] == submitter
+        end
+        submitter_match
+      end
+
     end
   end
 end
